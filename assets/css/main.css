@@ -84,7 +84,11 @@ input, select, textarea {
 
 	body {
 		background: #252122;
+<<<<<<< HEAD
 		background-image: url("images/bg.png");
+=======
+		background-image: url("images/bg02.png");
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -2266,7 +2270,11 @@ input, select, textarea {
 
 	#main {
 		position: relative;
+<<<<<<< HEAD
 		background: #f7f7f7 url("images/bg.png");
+=======
+		background: #f7f7f7 url("images/bg02.png");
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 		padding: 4em 0 4em 0;
 	}
 
@@ -2276,14 +2284,22 @@ input, select, textarea {
 			top: 0;
 			left: 0;
 			width: 100%;
+<<<<<<< HEAD
 			background: url("images/bg.png");
+=======
+			background: url("images/bg01.png");
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 			background-size: 100% 100%;
 			z-index: 0;
 			opacity: 0.1;
 		}
 
 		#main .major h2 {
+<<<<<<< HEAD
 			background: #f7f7f7 url("images/bg.png");
+=======
+			background: #f7f7f7 url("images/bg02.png");
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 		}
 
 /* Footer */
@@ -2300,7 +2316,11 @@ input, select, textarea {
 			top: 0;
 			left: 0;
 			width: 100%;
+<<<<<<< HEAD
 			background: url("images/bg.png");
+=======
+			background: url("images/bg01.png");
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 			background-size: 100% 100%;
 			z-index: 0;
 			opacity: 0.5;
@@ -2631,7 +2651,11 @@ input, select, textarea {
 				width: 275px;
 				z-index: 10002;
 				color: #858484;
+<<<<<<< HEAD
 				background-image: url("images/bg.png");
+=======
+				background-image: url("images/bg02.png");
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 				box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.35);
 			}
 

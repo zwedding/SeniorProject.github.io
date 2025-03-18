@@ -107,7 +107,11 @@
 
 	body {
 		background: #252122;
+<<<<<<< HEAD
 		background-image: url('images/bg.png');
+=======
+		background-image: url('images/bg02.png');
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 
 		// Stops initial animations until page loads.
 			&.is-preload {
@@ -1040,7 +1044,11 @@
 
 	#main {
 		position: relative;
+<<<<<<< HEAD
 		background: #f7f7f7 url('images/bg.png');
+=======
+		background: #f7f7f7 url('images/bg02.png');
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 		padding: 4em 0 4em 0;
 
 		&:before {
@@ -1049,7 +1057,11 @@
 			top: 0;
 			left: 0;
 			width: 100%;
+<<<<<<< HEAD
 			background: url('images/bg.png');
+=======
+			background: url('images/bg01.png');
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 			background-size: 100% 100%;
 			z-index: 0;
 			opacity: 0.1;
@@ -1057,7 +1069,11 @@
 
 		.major {
 			h2 {
+<<<<<<< HEAD
 				background: #f7f7f7 url('images/bg.png');
+=======
+				background: #f7f7f7 url('images/bg02.png');
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 			}
 		}
 	}
@@ -1075,7 +1091,11 @@
 			top: 0;
 			left: 0;
 			width: 100%;
+<<<<<<< HEAD
 			background: url('images/bg.png');
+=======
+			background: url('images/bg01.png');
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 			background-size: 100% 100%;
 			z-index: 0;
 			opacity: 0.5;
@@ -1391,7 +1411,11 @@
 				width: _size(navPanel);
 				z-index: _misc(z-index-base) + 2;
 				color: #858484;
+<<<<<<< HEAD
 				background-image: url('images/bg.png');
+=======
+				background-image: url('images/bg02.png');
+>>>>>>> c0c36d66fd90392a920d800eda73c8f66d5b1439
 				box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.35);
 
 				.link {
