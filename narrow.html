@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>DineQuest</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="narrow is-preload">
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <section id="header">
+        <h1><a href="index.html">DineQuest</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="current"><a href="narrow.html">Narrow</a></li>
+            <li><a href="book.html">Book</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- Main -->
+      <section id="main">
+        <div class="container">
+
+          <!-- Content -->
+          <article class="box post">
+            <header>
+              <h2>Taste Preferences? We've Got You Covered.</h2>
+            </header>
+            <p>
+              Narrow down your choice of restaurant by using criteria such as cuisine type, location, price, dining experience, ratings, and meal type.
+            </p>
+            <section>
+              <header>
+                <h3>Let's Do It!</h3>
+              </header>
+
+              <!-- Search Form -->
+              <form id="search-form" action="javascript:void(0);">
+                <label for="cuisine-type">Cuisine Type:</label>
+                <select id="cuisine-type">
+                  <option value="all">All</option>
+                  <option value="american">American</option>
+                  <option value="chinese">Chinese</option>
+                  <option value="french">French</option>
+                  <option value="indian">Indian</option>
+                  <option value="italian">Italian</option>
+                  <option value="japanese">Japanese</option>
+                  <option value="mexican">Mexican</option>
+                  <option value="thai">Thai</option>
+                  <option value="vietnamese">Vietnamese</option>
+                </select>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" placeholder="Enter a location" />
+
+                <label for="price-range">Price Range:</label>
+                <select id="price-range">
+                  <option value="1">$</option>
+                  <option value="2">$$</option>
+                  <option value="3">$$$</option>
+                  <option value="4">$$$$</option>
+                </select>
+
+                <label for="min-rating">Minimum Rating:</label>
+                <select id="min-rating">
+                  <option value="1">1 Star</option>
+                  <option value="2">2 Stars</option>
+                  <option value="3">3 Stars</option>
+                  <option value="4">4 Stars</option>
+                  <option value="5">5 Stars</option>
+                </select>
+
+                <label for="open-now">Open Now:</label>
+                <select id="open-now">
+                  <option value="false">Doesn't Matter</option>
+                  <option value="true">Yes</option>
+                </select>
+
+                <button type="submit" id="search-narrow-btn" style="margin-top: 20px;">Search</button>
+              </form>
+
+              <!-- Results Display -->
+              <div id="restaurant-results"></div>
+            </section>
+          </article>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <section id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-4 col-12-medium">
+              <section>
+                <header>
+                  <h2>Help From HTML5</h2>
+                </header>
+                <p>
+                  This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
+                  <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a>. It's released for free under
+                  the <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for any personal or commercial project &ndash; just don't forget to credit us!
+                </p>
+                <footer>
+                  <ul class="actions">
+                    <li><a href="http://html5up.net/" class="button">Find Out More About HTML5</a></li>
+                  </ul>
+                </footer>
+              </section>
+            </div>
+            <div class="col-12">
+
+              <!-- Copyright -->
+              <div id="copyright">
+                <ul class="links">
+                  <li>&copy; DineQuest. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Additional Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
