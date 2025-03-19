@@ -9,12 +9,18 @@ function sanitizeInput(input) {
     return DOMPurify.sanitize(input);
 }
 
-// Function to fetch restaurants based on search criteria
+// Fetches resrauants based on criteria
 async function fetchRestaurants(criteria) {
     try {
-        const response = await fetch('https://sp-backend-do0f.onrender.com/api/search' + new URLSearchParams(criteria), {
+        // Log the criteria being sent to check if it has the required parameters
+        console.log('Criteria:', criteria);
+
+        // Build the URL with the query parameters
+        const url = 'https://sp-backend-do0f.onrender.com/api/search' + new URLSearchParams(criteria);
+
+        const response = await fetch(url, {
             headers: {
-                Authorization: `Bearer ${apiKey}`,
+                Authorization: `Bearer ${apiKey}`,  // Ensure apiKey is defined correctly
             },
         });
 
