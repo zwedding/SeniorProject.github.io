@@ -12,7 +12,7 @@ function sanitizeInput(input) {
 // Function to fetch restaurants based on search criteria
 async function fetchRestaurants(criteria) {
     try {
-        const response = await fetch(`http://localhost:3000/api/search?` + new URLSearchParams(criteria), {
+        const response = await fetch('https://sp-backend-do0f.onrender.com/api/search' + new URLSearchParams(criteria), {
             headers: {
                 Authorization: `Bearer ${apiKey}`,
             },
