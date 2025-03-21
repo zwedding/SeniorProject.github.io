@@ -9,8 +9,25 @@ function sanitizeInput(input) {
     return DOMPurify.sanitize(input);
 }
 
+let lastApiRequestTime = 0;
+const rateLimitPeriod = 5000; // 5 seconds in milliseconds
+
+function canMakeApiRequest() {
+  const currentTime = Date.now();
+  if (currentTime - lastApiRequestTime >= rateLimitPeriod) {
+    lastApiRequestTime = currentTime;
+    return true;
+  }
+  return false;
+}
+
 // Function to fetch restaurants based on search criteria (restaurant name and location)
 async function fetchRestaurants(criteria) {
+    if (!canMakeApiRequest()) {
+        alert('Please wait before making another request.');
+        return;
+      }
+    
     try {
         const response = await fetch(yelpApiBaseUrl + '?' + new URLSearchParams(criteria), {
             headers: {
