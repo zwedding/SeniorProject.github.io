@@ -5,12 +5,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://api.yelp.com;">
-    <meta name="referrer" content="strict-origin-when-cross-origin"/>
-    <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload"/>
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()"/>
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="book is-preload">
     <div id="page-wrapper">
@@ -48,8 +48,6 @@
                             <label for="user-location">Enter your location (optional):</label>
                             <input type="text" id="user-location" placeholder="City or address" />
                             <br /><br />
-                            <div class="g-recaptcha" data-sitekey="6Les_fsqAAAAAOBZFrsMvKxPrgeUpMxzYar83Fq4"></div>
-                            <br />
                             <button type="submit" id="search-book-btn" style="margin-top: 20px;">Search</button>
                         </div>
                         <div id="restaurant-list" style="margin-top: 20px;"></div>
