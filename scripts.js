@@ -30,7 +30,7 @@ async function fetchRestaurants(criteria) {
 
     try {
         // Call Netlify function using the new redirect rule
-        const response = await fetch(`/api/yelp?${new URLSearchParams(criteria)}`);
+        const response = await fetch(`/.netlify/functions/fetchYelpData?${new URLSearchParams(criteria)}`);
 
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
