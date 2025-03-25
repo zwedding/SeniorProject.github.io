@@ -5,3 +5,8 @@
   for = "/*"
   [headers.values]
     Content-Security-Policy = "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://api.yelp.com;"
+
+[[redirects]]
+  from = "/api/yelp"
+  to = "/.netlify/functions/fetchYelpData"
+  status = 200

@@ -22,15 +22,15 @@ function canMakeApiRequest() {
 }
 
 // Function to fetch restaurants securely via Netlify Function
-async function searchRestaurants(criteria) {
+async function fetchRestaurants(criteria) {
     if (!canMakeApiRequest()) {
         alert('Please wait before making another request.');
         return;
     }
 
     try {
-        // Call Netlify function instead of Yelp API directly
-        const response = await fetch(`/.netlify/functions/fetchYelpData?${new URLSearchParams(criteria)}`);
+        // Call Netlify function using the new redirect rule
+        const response = await fetch(`/api/yelp?${new URLSearchParams(criteria)}`);
 
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
