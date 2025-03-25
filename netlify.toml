@@ -9,5 +9,5 @@
 
 [[redirects]]
   from = "/api/yelp"
-  to = "/.netlify/functions/getYelpData"
+  to = "/.netlify/Functions/getYelpData"
   status = 200
