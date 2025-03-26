@@ -21,79 +21,44 @@ function canMakeApiRequest() {
   return false;
 }
 
-// Function to fetch restaurants securely via Netlify Function
+// Function to fetch restaurants based on search criteria (restaurant name and location)
 async function fetchRestaurants(criteria) {
     if (!canMakeApiRequest()) {
         alert('Please wait before making another request.');
         return;
-    }
-
+      }
+    
     try {
-        // Call Netlify function using the new redirect rule
-        const response = await fetch(`/.netlify/Functions/getYelpData?${new URLSearchParams(criteria)}`);
+        const response = await fetch(yelpApiBaseUrl + '?' + new URLSearchParams(criteria), {
+            headers: {
+                Authorization: `Bearer ${apiKey}`,
+            },
+        });
 
+        // Check if the response is ok (status 200-299)
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
         }
 
         const data = await response.json();
 
-        // Handle case where no businesses are returned
+        // If there are no businesses returned
         if (!data.businesses || data.businesses.length === 0) {
             throw new Error('No restaurants found matching your criteria.');
         }
 
-        // Display results
+        // Handle the response (displaying restaurant data)
         displayRestaurants(data.businesses);
 
     } catch (error) {
+        // Display a user-friendly error message on the page
         console.error('Error fetching restaurants:', error);
 
-        // Show error message in the UI
+        // Display the error message in the results container
         const resultsContainer = document.getElementById('restaurant-list') || document.getElementById('restaurant-results');
         resultsContainer.innerHTML = `<p class="error-message">Oops! Something went wrong: ${error.message}</p>`;
     }
 }
-
-
-// // Function to fetch restaurants based on search criteria (restaurant name and location)
-// async function fetchRestaurants(criteria) {
-//     if (!canMakeApiRequest()) {
-//         alert('Please wait before making another request.');
-//         return;
-//       }
-    
-//     try {
-//         const response = await fetch(yelpApiBaseUrl + '?' + new URLSearchParams(criteria), {
-//             headers: {
-//                 Authorization: `Bearer ${apiKey}`,
-//             },
-//         });
-
-//         // Check if the response is ok (status 200-299)
-//         if (!response.ok) {
-//             throw new Error(`Error: ${response.statusText}`);
-//         }
-
-//         const data = await response.json();
-
-//         // If there are no businesses returned
-//         if (!data.businesses || data.businesses.length === 0) {
-//             throw new Error('No restaurants found matching your criteria.');
-//         }
-
-//         // Handle the response (displaying restaurant data)
-//         displayRestaurants(data.businesses);
-
-//     } catch (error) {
-//         // Display a user-friendly error message on the page
-//         console.error('Error fetching restaurants:', error);
-
-//         // Display the error message in the results container
-//         const resultsContainer = document.getElementById('restaurant-list') || document.getElementById('restaurant-results');
-//         resultsContainer.innerHTML = `<p class="error-message">Oops! Something went wrong: ${error.message}</p>`;
-//     }
-// }
 
 // Display restaurant results
 function displayRestaurants(restaurants) {
