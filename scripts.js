@@ -21,7 +21,7 @@ function canMakeApiRequest() {
   return false;
 }
 
-// Function to fetch restaurants based on search criteria (restaurant name and location)
+// Function to fetch restaurants based on search criteria
 async function fetchRestaurants(criteria) {
     if (!canMakeApiRequest()) {
         alert('Please wait before making another request.');
@@ -35,23 +35,23 @@ async function fetchRestaurants(criteria) {
             },
         });
 
-        // Check if the response is ok (status 200-299)
+        // Check if the response is ok
         if (!response.ok) {
             throw new Error(`Error: ${response.statusText}`);
         }
 
         const data = await response.json();
 
-        // If there are no businesses returned
+        // If there are no businesses returned...
         if (!data.businesses || data.businesses.length === 0) {
             throw new Error('No restaurants found matching your criteria.');
         }
 
-        // Handle the response (displaying restaurant data)
+        // Display restaurant data
         displayRestaurants(data.businesses);
 
     } catch (error) {
-        // Display a user-friendly error message on the page
+        // Display an error message on the page
         console.error('Error fetching restaurants:', error);
 
         // Display the error message in the results container
@@ -74,7 +74,7 @@ function displayRestaurants(restaurants) {
     // Check if the user is on the 'book.html' page
     const isOnBookPage = window.location.pathname.includes('book.html');
 
-    // Style each restaurant's information neatly
+    // Style each restaurant's info
     restaurants.forEach(restaurant => {
         const restaurantElement = document.createElement('div');
         restaurantElement.classList.add('restaurant');
@@ -107,7 +107,7 @@ function displayRestaurants(restaurants) {
             bookNowBtn.classList.add('book-now-btn');
             bookNowBtn.innerText = 'Book Now';
 
-            // If a reservation URL is available, use it; otherwise, fallback to the Yelp page URL
+            // If a reservation URL is available use it
             const bookingUrl = reservationUrl || url;
 
             bookNowBtn.setAttribute('data-url', bookingUrl);
@@ -153,10 +153,10 @@ if (searchBookBtn) {
                     // Collect criteria
                     const criteria = {
                         term: restaurantSearch,
-                        location: userLocation, // Use the user's location
-                        limit: 10,  // Adjust as needed
+                        location: userLocation,
+                        limit: 10,
                     };
-                    // Call the function to fetch restaurants
+                    // Fetch restaurants
                     fetchRestaurants(criteria);
                 }, function (error) {
                     console.error("Geolocation error:", error);
@@ -170,8 +170,8 @@ if (searchBookBtn) {
             // Collect criteria
             const criteria = {
                 term: restaurantSearch,
-                location: userLocation, // Use the provided location
-                limit: 10,  // Adjust as needed
+                location: userLocation,
+                limit: 10,
             };
             // Call the function to fetch restaurants
             fetchRestaurants(criteria);
@@ -181,32 +181,58 @@ if (searchBookBtn) {
     console.error('Search button for the book page not found!');
 }
 
-// Get criteria from narrow form and fetch restaurants (Narrow Page)
 const searchNarrowBtn = document.getElementById('search-narrow-btn');
 if (searchNarrowBtn) {
     searchNarrowBtn.addEventListener('click', function (event) {
         event.preventDefault(); // Prevent form submission
 
-        // Collect the form values
+        // Collect form values
         const cuisineType = sanitizeInput(document.getElementById('cuisine-type')?.value);
-        const location = sanitizeInput(document.getElementById('location')?.value);
+        let location = sanitizeInput(document.getElementById('location')?.value);
         const priceRange = sanitizeInput(document.getElementById('price-range')?.value);
         const minRating = sanitizeInput(document.getElementById('min-rating')?.value);
         const openNow = sanitizeInput(document.getElementById('open-now')?.value);
 
-        // Collect criteria for narrow search
-        const criteria = {
-            term: cuisineType !== 'all' ? cuisineType : '', // Use cuisine type as a search term
-            location: location,
-            price: priceRange,
-            rating: minRating,
-            open_now: openNow === 'true',
-            categories: cuisineType !== 'all' ? cuisineType : undefined, // Filter by cuisine type
-            limit: 10, // Adjust as needed
-        };
+        // If location is empty, get user's location
+        if (!location) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        location = `${position.coords.latitude},${position.coords.longitude}`;
 
-        // Call the function to fetch restaurants
-        fetchRestaurants(criteria);
+                        const criteria = {
+                            term: cuisineType !== 'all' ? cuisineType : '',
+                            location: location,
+                            price: priceRange,
+                            rating: minRating,
+                            open_now: openNow === 'true',
+                            categories: cuisineType !== 'all' ? cuisineType : undefined,
+                            limit: 10,
+                        };
+
+                        fetchRestaurants(criteria);
+                    },
+                    function (error) {
+                        console.error("Geolocation error:", error);
+                        alert("Unable to retrieve your location. Please enter a location manually.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        } else {
+            const criteria = {
+                term: cuisineType !== 'all' ? cuisineType : '',
+                location: location,
+                price: priceRange,
+                rating: minRating,
+                open_now: openNow === 'true',
+                categories: cuisineType !== 'all' ? cuisineType : undefined,
+                limit: 10,
+            };
+
+            fetchRestaurants(criteria);
+        }
     });
 } else {
     console.error('Search button for the narrow page not found!');
