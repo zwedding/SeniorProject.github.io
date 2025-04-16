@@ -74,7 +74,7 @@ function displayRestaurants(restaurants) {
     // Check if the user is on the 'book.html' page
     const isOnBookPage = window.location.pathname.includes('book.html');
 
-    // Style each restaurant's info
+    // Style info
     restaurants.forEach(restaurant => {
         const restaurantElement = document.createElement('div');
         restaurantElement.classList.add('restaurant');
@@ -87,9 +87,9 @@ function displayRestaurants(restaurants) {
         const address = sanitizeInput(restaurant.location.address1 || 'N/A');
         const city = sanitizeInput(restaurant.location.city || 'N/A');
         const state = sanitizeInput(restaurant.location.state || 'N/A');
-        const phone = sanitizeInput(restaurant.display_phone || 'N/A'); // Add phone number
-        const url = sanitizeInput(restaurant.url || '#'); // Yelp business URL or fallback to # if unavailable
-        const reservationUrl = sanitizeInput(restaurant.reservation_url || null); // Check for reservation URL
+        const phone = sanitizeInput(restaurant.display_phone || 'N/A');
+        const url = sanitizeInput(restaurant.url || '#');
+        const reservationUrl = sanitizeInput(restaurant.reservation_url || null);
 
         restaurantElement.innerHTML = `
             <h3 style="margin-bottom: 5px;">${sanitizeInput(restaurant.name)}</h3>
@@ -141,7 +141,7 @@ if (searchBookBtn) {
         console.log("User location:", userLocation);
 
         if (!restaurantSearch) {
-            console.log("Please enter a restaurant name.");
+            alert("Please enter a restaurant name.");
             return;
         }
 
