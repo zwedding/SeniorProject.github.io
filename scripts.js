@@ -1,5 +1,5 @@
 // API Key
-const apiKey = 'I0kZNveX7pJruY7Y3pmY5ZN7rMzcQbyEakEcLbpCahdDiIsmq6ftINgmSkd0f_GdXtUnd583YXAMaVYYMR301--pRJPdgpcbERmgB4jpuXzpvB94V5A-4c6d5GPjZ3Yx';
+const apiKey = 'CfokFbu3zwZSc6ck9eVx2wMi7QV6WWNDPMx8_oe9wnORvVpVUn7SCFTG5e3qbPDTqr9Cu94rLq6jopJDrPUTMOe_71hC94g92e4EHH16-YRIDoF0UynlYHcV0Pf-Z3Yx';
 
 // Yelp API Base URL
 const yelpApiBaseUrl = 'https://api.yelp.com/v3/businesses/search';
