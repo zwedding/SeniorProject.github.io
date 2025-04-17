@@ -107,7 +107,7 @@ function displayRestaurants(restaurants) {
             bookNowBtn.classList.add('book-now-btn');
             bookNowBtn.innerText = 'Book Now';
 
-            // If a reservation URL is available use it
+            // If a reservation URL is available, use it
             const bookingUrl = reservationUrl || url;
 
             bookNowBtn.setAttribute('data-url', bookingUrl);
@@ -126,7 +126,7 @@ function displayRestaurants(restaurants) {
     });
 }
 
-// Get criteria from book form and fetch restaurants (Book Page)
+// Get criteria from book form and fetch restaurants
 const searchBookBtn = document.getElementById('search-book-btn');
 if (searchBookBtn) {
     searchBookBtn.addEventListener('click', function (event) {
@@ -135,7 +135,7 @@ if (searchBookBtn) {
         const restaurantSearch = sanitizeInput(document.getElementById('restaurant-search')?.value);
         let userLocation = sanitizeInput(document.getElementById('user-location')?.value);
 
-        // Add debugging logs
+        // Debugging logs
         console.log("Search button clicked");
         console.log("Restaurant search value:", restaurantSearch);
         console.log("User location:", userLocation);
@@ -173,7 +173,6 @@ if (searchBookBtn) {
                 location: userLocation,
                 limit: 10,
             };
-            // Call the function to fetch restaurants
             fetchRestaurants(criteria);
         }
     });
